@@ -17,4 +17,9 @@
 
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.on('/').render('main')
+Route.on('/profile').render('profile')
+Route.on('/reg').render('reg')
+Route.on('/login').render('login')
+Route.on('/logout').render('logout')
+Route.on('/add').render('add')

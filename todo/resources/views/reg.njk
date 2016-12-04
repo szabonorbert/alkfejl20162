@@ -1,0 +1,23 @@
+{% extends 'base' %}
+
+{% block content %}
+
+<h1>Regisztráció</h1>
+
+<form method="post" action="/reg">
+    <div class="form-group">
+        <label for="name">Név:</label>
+        <input required="required" type="text" class="form-control" id="name" placeholder="Név" />
+    </div>
+    <div class="form-group">
+        <label for="mail">E-mail:</label>
+        <input required="required" type="mail" class="form-control" id="mail" placeholder="E-mail" />
+    </div>
+    <div class="form-group">
+        <label for="pwd">Jelszó:</label>
+        <input required="required" type="password" class="form-control" id="pwd" placeholder="Jelszó" />
+    </div>
+    <button type="submit" class="btn btn-default">Regisztráció</button>
+</form>
+
+{% endblock %}

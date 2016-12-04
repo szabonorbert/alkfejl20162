@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Mafia todo</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" media="all" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+
+
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Mafia todo</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+              <li><a href="/">Teendők listája</a></li>
+              {% if currentUser %}
+              <li><a href="/recipes/create">Recept létrehozása</a></li>
+              {% endif %}
+          </ul>
+          
+          <ul class="nav navbar-nav navbar-right">
+            {% if currentUser %}
+              <li class="navbar-text">Üdv, {{ currentUser.username }}!</li>
+              <li><a href="/logout">Kilépés</a></li>
+            {% else %}
+              <li><a href="/login">Bejelentkezés</a></li>
+              <li><a href="/reg">Regisztráció</a></li>
+            {% endif %}
+          </ul>
+          </div>
+      </div>
+    </nav>
+
+
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

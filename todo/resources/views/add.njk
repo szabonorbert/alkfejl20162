@@ -1,0 +1,30 @@
+{% extends 'base' %}
+
+{% block content %}
+
+<h1>Új feladat hozzáadása</h1>
+
+<form method="post" action="/add">
+    <div class="form-group">
+        <label for="name">Név:</label>
+        <input required="required" type="text" class="form-control" id="name" placeholder="Név" />
+    </div>
+    <div class="form-group">
+        <label for="text">Leírás:</label>
+        <input required="required" type="text" class="form-control" id="text" placeholder="Leírás" />
+    </div>
+    <div class="form-group">
+        <label for="text">Szint:</label>
+        <select name="level" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-default">Feladat hozzáadása</button>
+</form>
+
+{% endblock %}
