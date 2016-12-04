@@ -15,7 +15,7 @@ module.exports = {
   |
   */
   connection: Env.get('DB_CONNECTION', 'sqlite'),
-
+  debug: true,
   /*
   |--------------------------------------------------------------------------
   | Sqlite
@@ -30,17 +30,18 @@ module.exports = {
   sqlite: {
     client: 'sqlite3',
     connection: {
-      filename: Helpers.databasePath('development.sqlite')
+      filename: Helpers.databasePath('todo.sqlite')
     },
-    useNullAsDefault: true
+    useNullAsDefault: true,
+    debug: true
   },
 
   /*
   |--------------------------------------------------------------------------
-  | MySQL
+  | Mysql
   |--------------------------------------------------------------------------
   |
-  | Here we define connection settings for MySQL database.
+  | Here we define connection settings for Mysql database.
   |
   | npm i --save mysql
   |
@@ -60,7 +61,7 @@ module.exports = {
   | PostgreSQL
   |--------------------------------------------------------------------------
   |
-  | Here we define connection settings for PostgreSQL database.
+  | Here we define connection settings for Mysql database.
   |
   | npm i --save pg
   |

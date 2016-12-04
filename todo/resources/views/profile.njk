@@ -1,0 +1,19 @@
+{% extends 'base' %}
+
+{% block content %}
+
+<h1>Profil szerkesztése</h1>
+<p>A neved nem írhatod át. Megtalálnunk, ha egy feladatot úgy jelentesz elvégzettnek, hogy nem csináltal semmit.</p>
+<form method="post" action="/profile">
+    <div class="form-group">
+        <label for="mail">E-mail:</label>
+        <input required="required" type="mail" class="form-control" id="mail" placeholder="E-mail" value="{{currentUser.mail}}" />
+    </div>
+    <div class="form-group">
+        <label for="pwd">Új jelszó <small>(ha nem töltöd ki, a jelszavad nem változik)</small>:</label>
+        <input required="required" type="password" class="form-control" id="pwd" placeholder="Új jelszó" />
+    </div>
+    <button type="submit" class="btn btn-default">Jelszómódosítás</button>
+</form>
+
+{% endblock %}
