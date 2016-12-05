@@ -4,18 +4,29 @@
 
 <h1>Regisztráció</h1>
 
+{% if old('errors') %}
+<div class="alert alert-danger" role="alert">
+    <ul>
+    {% for error in old('errors') %}
+    <li>{{ error.message }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
 <form method="post" action="/reg">
+    {{ csrfField }}
     <div class="form-group">
-        <label for="name">Név:</label>
-        <input required="required" type="text" class="form-control" id="name" placeholder="Név" />
+        <label for="username">Felhasználónév:</label>
+        <input required="required" type="text" class="form-control" name="username" id="username" placeholder="Felhasználónév" value="{{ old('username') }}" />
     </div>
     <div class="form-group">
-        <label for="mail">E-mail:</label>
-        <input required="required" type="mail" class="form-control" id="mail" placeholder="E-mail" />
+        <label for="email">E-mail:</label>
+        <input required="required" type="mail" class="form-control" name="email" id="email" placeholder="E-mail" value="{{ old('email') }}" />
     </div>
     <div class="form-group">
-        <label for="pwd">Jelszó:</label>
-        <input required="required" type="password" class="form-control" id="pwd" placeholder="Jelszó" />
+        <label for="password">Jelszó:</label>
+        <input required="required" type="password" class="form-control" name="password" id="password" placeholder="Jelszó" value="{{ old('password') }}" />
     </div>
     <button type="submit" class="btn btn-default">Regisztráció</button>
 </form>
