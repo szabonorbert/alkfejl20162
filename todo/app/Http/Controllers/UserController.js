@@ -1,9 +1,10 @@
 'use strict'
 
 const User = use('App/Model/User')
+const Don = use('App/Model/Don')
 const Hash = use('Hash')
 const Validator = use('Validator')
-
+const View = use('View');
 class UserController {
     
     //reg
@@ -49,6 +50,7 @@ class UserController {
     //login
 
     * login(req,res){
+        console.log(req.auth)
         yield res.sendView('login');
     }
 
@@ -58,6 +60,8 @@ class UserController {
 
         try {
             yield req.auth.attempt(email, password)
+            //godfather?
+            View.global('isGodfather', 1)
             res.redirect('/')
         } catch (ex) {
             console.log(ex)
@@ -67,10 +71,12 @@ class UserController {
             
             res.redirect('/login')
         }
+
     }
 
     * doLogout (req, res) {
         yield req.auth.logout()
+        View.global('isGodfather', 0)
         res.redirect('/')
     }
 }

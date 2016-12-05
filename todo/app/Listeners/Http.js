@@ -38,4 +38,6 @@ Http.handleError = function * (error, request, response) {
  * starting http server.
  */
 Http.onStart = function () {
+  const View = use('View')
+  View.global('isGodfather', 0)
 }
