@@ -15,9 +15,14 @@
 | Route.resource('user', 'UserController')
 */
 
+//const Database = use('Database')
 const Route = use('Route')
 
-Route.on('/').render('main')
+//Route.on('/').render('main')
+Route.get('/', 'TaskController.index')
+
+
+
 Route.on('/profile').render('profile')
 Route.on('/reg').render('reg')
 Route.on('/login').render('login')
