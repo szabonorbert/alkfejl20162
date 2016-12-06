@@ -2,8 +2,6 @@
 
 {% block content %}
 
-isGodfather: {{isGodfather}}
-
 <h1>Bejelentkezés</h1>
 
 {% if old('error') %}
@@ -25,4 +23,9 @@ isGodfather: {{isGodfather}}
     <button type="submit" class="btn btn-default">Bejelentkezés</button>
 </form>
 
+
+<form method="post" action="/reg">
+    {{ csrfField }}
+    <button type="submit" class="btn btn-default">Regisztráció</button>
+</form>
 {% endblock %}

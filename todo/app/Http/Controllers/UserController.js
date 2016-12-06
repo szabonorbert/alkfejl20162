@@ -44,10 +44,9 @@ class UserController {
         yield user.save()
         yield req.auth.login(user)
 
-        //TODO: keresztapa?
-        //const userId = yield req.auth.getUser().id
-
-
+        //reg után biztos nemkeresztapa
+        View.global('isGodfather', 0)
+        
         // 4. válasz generálása
         res.redirect('/')
     }

@@ -1,14 +1,55 @@
 'use strict'
 
 const Task = use('App/Model/Task')
+const User = use('App/Model/User')
+const Finish = use('App/Model/Finish')
+const Database = use('Database')
 
 class TaskController {
     * index(req, res){
-        //console.log(currentUser);
-        const tasks = yield Task.all()
-        yield res.sendView('main', {
-            tasks: tasks.toJSON()
+        const tasks = yield Task.all();
+        const tasks_j = tasks.toJSON();
+        const finish = yield Finish.all();
+        const finish_j = finish.toJSON();
+
+        for (var i = 0; i<tasks_j.length; i++){
+            var show = true;
+            for (var j = 0; j<finish_j.length && show; j++){
+                if (finish_j[j].taskid == tasks_j[i].id) show = false;
+            }
+            tasks_j[i].show=1;
+            if (!show) tasks_j[i].show=0;
+        }
+        
+        yield res.sendView('main', {    
+            tasks: tasks_j
         })
+    }
+    * do (req, res){
+        const taskId = req.param('id');
+        const user = yield req.auth.getUser();
+
+        const fin = new Finish();
+        fin.userid = user.id;
+        fin.taskid = taskId;
+        yield fin.save();
+
+        res.redirect('/')
+    }
+
+    * del (req, res) {
+        const issue = yield Issue.find(req.param('id'))
+        const id = issue.project_id
+        yield issue.delete()
+        res.redirect(`/projects/${id}`)
+    }
+
+
+    * doJob(req,res){
+        /*const email = req.input('email')
+        const user = yield req.auth.getUser()*/
+        console.log("------------")
+        console.log(user)
     }
 }
 
