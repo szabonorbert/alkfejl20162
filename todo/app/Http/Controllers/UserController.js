@@ -1,5 +1,6 @@
 'use strict'
 
+const Database = use('Database')
 const User = use('App/Model/User')
 const Don = use('App/Model/Don')
 const Hash = use('Hash')
@@ -43,6 +44,10 @@ class UserController {
         yield user.save()
         yield req.auth.login(user)
 
+        //TODO: keresztapa?
+        //const userId = yield req.auth.getUser().id
+
+
         // 4. válasz generálása
         res.redirect('/')
     }
@@ -59,12 +64,22 @@ class UserController {
         const password = req.input('password')
 
         try {
+            //van ilyen user + don tábla? ha ddd[0] == undefined, akkor nem don
+            const ddd = yield Database.table('users').innerJoin('dons', 'users.id', 'dons.userid').where('email', email)
+            
             yield req.auth.attempt(email, password)
-            //godfather?
-            View.global('isGodfather', 1)
+
+            if (ddd[0] == undefined){
+                View.global('isGodfather', 0)
+            } else {
+                View.global('isGodfather', 1)
+            }
+            
+
             res.redirect('/')
+
         } catch (ex) {
-            console.log(ex)
+            console.log("EX: "+ ex)
             yield req
                 .with({ error: 'Rossz belépési adatok.' })
                 .flash()
