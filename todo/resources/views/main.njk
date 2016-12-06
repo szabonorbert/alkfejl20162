@@ -6,7 +6,6 @@
     <table class="table table-striped">
        
             <tr>
-                <th>#</th>
                 <th>név</th>
                 <th>leírás</th>
                 <th>szint (1-5)</th>
@@ -16,7 +15,6 @@
             {% for task in tasks %}
                 {% if task.show == 1 %}
                 <tr>
-                    <td></td>
                     <td>{{task.name}}</td>
                     <td>{% if currentUser %}{{task.text}}{% else %}[jelentkezz be]{% endif %}
                     </td>

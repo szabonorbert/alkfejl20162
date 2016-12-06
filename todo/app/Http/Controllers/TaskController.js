@@ -43,7 +43,59 @@ class TaskController {
     }
 
     * del (req, res) {
-        //todo
+        const task = yield Task.find(req.param('id'))
+        const user = yield req.auth.getUser();
+        if (user.id == task.userid){
+            yield task.delete()
+        }
+        res.redirect('/')
+    }
+
+    * history (req, res){
+        const tasks = yield Task.all();
+        const tasks_j = tasks.toJSON();
+        const finish = yield Finish.all();
+        const finish_j = finish.toJSON();
+        const users = yield User.all();
+        const users_j = users.toJSON();
+
+        for (var i = 0; i<tasks_j.length; i++){
+            //console.log(tasks_j[0]);
+            //show in list
+            var show = false;
+            for (var j = 0; j<finish_j.length && !show; j++){
+                if (finish_j[j].taskid == tasks_j[i].id){
+                    show = true;
+                    /*console.log("-----------")
+                    console.log(finish_j[i])
+                    console.log("-----------")*/
+                    tasks_j[i].fin_uid = finish_j[j].userid;
+                    tasks_j[i].date = finish_j[j].created_at;
+                }
+            }
+            /*console.log("-----------")
+            console.log(tasks_j[i])
+            console.log("-----------")*/
+            tasks_j[i].show=0;
+            if (show){
+                tasks_j[i].show=1;
+                //get user
+                var gotname = false;
+                for (var j = 0; j<users_j.length && !gotname; j++){
+                    if (users_j[j].id == tasks_j[i].fin_uid){
+                        gotname = true;
+                        console.log(users_j[j].id)
+                        tasks_j[i].fin_uname = users_j[j].username;
+                    }
+                }
+            }
+
+            console.log(tasks_j)
+
+            yield res.sendView('history', {
+                tasks: tasks_j
+            })
+        }
     }
 
     * add(req, res){

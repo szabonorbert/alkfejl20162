@@ -6,7 +6,6 @@
     <table class="table table-striped">
        
             <tr>
-                <th>#</th>
                 <th>név</th>
                 <th>leírás</th>
                 <th>szint (1-5)</th>
@@ -14,15 +13,17 @@
                 <th>dátum</th>
             </tr>
             
-
-            <tr>
-                <td></td>
-                <td>{{todo.title}}</td>
-                <td>{{todo.text}}</td>
-                <td>{{todo.level}}</td>
-                <td>{{todo.uname}}</td>
-                <td>{{todo.date}}</td>
-            </tr>
+            {% for task in tasks %}
+                {% if task.show == 1 %}
+                <tr>
+                    <td>{{task.name}}</td>
+                    <td>{{task.text}}</td>
+                    <td>{{task.level}}</td>
+                    <td>{{task.fin_uname}}</td>
+                    <td>{{task.date}}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
     </table>
 
 {% endblock %}
