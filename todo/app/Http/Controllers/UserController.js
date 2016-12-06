@@ -7,8 +7,6 @@ const Hash = use('Hash')
 const Validator = use('Validator')
 class UserController {
     
-    //reg
-
     * reg(req,res){
         yield res.sendView('reg');
     }
@@ -47,10 +45,8 @@ class UserController {
         res.redirect('/')
     }
 
-    //login
-
     * login(req,res){
-        console.log(req.auth)
+        //console.log(req.auth)
         yield res.sendView('login');
     }
 
@@ -76,6 +72,39 @@ class UserController {
     * doLogout (req, res) {
         yield req.auth.logout()
         res.redirect('/')
+    }
+
+    * profile (req, res){
+        yield res.sendView('password');
+    }
+
+    * editProfile(req, res) {
+
+        const empData = req.all()
+
+        const rules = {
+            'password': 'required|min:4'
+        }
+
+        const validation = yield Validator.validateAll(empData, rules);
+
+        if (validation.fails()) {
+            yield req
+                .withAll()
+                .andWith({ errors: validation.messages() })
+                .flash()
+
+            res.redirect('/password')
+            return
+        }
+        
+        const currentUser = yield req.auth.getUser();
+        const userId = currentUser.id;
+        const user = yield User.findBy('id', userId);
+        user.password = yield Hash.make(empData.password);
+        yield user.save();
+        res.redirect('/password');
+        return;
     }
 }
 
