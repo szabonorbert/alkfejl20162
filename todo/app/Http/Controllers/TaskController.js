@@ -11,20 +11,26 @@ class TaskController {
         const tasks_j = tasks.toJSON();
         const finish = yield Finish.all();
         const finish_j = finish.toJSON();
+        const user = yield req.auth.getUser();
 
         for (var i = 0; i<tasks_j.length; i++){
+            //show in list
             var show = true;
             for (var j = 0; j<finish_j.length && show; j++){
                 if (finish_j[j].taskid == tasks_j[i].id) show = false;
             }
             tasks_j[i].show=1;
             if (!show) tasks_j[i].show=0;
+
+            //del btn
+            if (user != undefined && tasks_j[i].userid == user.id) tasks_j[i].showdel = true;
         }
         
         yield res.sendView('main', {    
             tasks: tasks_j
         })
     }
+
     * do (req, res){
         const taskId = req.param('id');
         const user = yield req.auth.getUser();
@@ -33,23 +39,19 @@ class TaskController {
         fin.userid = user.id;
         fin.taskid = taskId;
         yield fin.save();
-
         res.redirect('/')
     }
 
     * del (req, res) {
-        const issue = yield Issue.find(req.param('id'))
-        const id = issue.project_id
-        yield issue.delete()
-        res.redirect(`/projects/${id}`)
+        //todo
     }
 
+    * add(req, res){
+        //todo
+    }
 
-    * doJob(req,res){
-        /*const email = req.input('email')
-        const user = yield req.auth.getUser()*/
-        console.log("------------")
-        console.log(user)
+    * showAdd(req, res){
+        //todo
     }
 }
 

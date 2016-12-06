@@ -23,24 +23,12 @@
                     <td>{{task.level}}</td>
                     <td>
                         {% if currentUser %}
-                        <a href="/do/{{task.id}}">elvégeztem</a>
+                            <a class="btn btn-default" href="/do/{{task.id}}">elvégeztem</a>
+                            {% if task.showdel %}
+                                <a class="btn btn-danger" href="/del/{{task.id}}">törlés</a>
+                            {%endif%}
+                        {%endif%}
                         
-                        <!--
-                        <form action="/" method="post">
-                            {{ csrfField }}
-                            <input type="hidden" name="action" value="make" />
-                            <input type="hidden" name="id" value="{{task.id}}" />
-                        <button type="submit" class="btn btn-default">A feladatot elvégeztem</button>
-                        {% endif %}
-
-                        {% if isGodfather == 1 %}
-                            <form action="/" method="post">
-                                {{ csrfField }}
-                                <input type="hidden" name="action" value="del" />
-                                <input type="hidden" name="id" value="{{task.id}}" />
-                                <button type="submit" class="btn btn-danger">Törlés</button>
-                            </form>
-                        {% endif %}-->
                     </td>
                 </tr>
                 {% endif %}

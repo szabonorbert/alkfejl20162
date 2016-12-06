@@ -5,7 +5,6 @@ const User = use('App/Model/User')
 const Don = use('App/Model/Don')
 const Hash = use('Hash')
 const Validator = use('Validator')
-const View = use('View');
 class UserController {
     
     //reg
@@ -43,9 +42,6 @@ class UserController {
 
         yield user.save()
         yield req.auth.login(user)
-
-        //reg után biztos nemkeresztapa
-        View.global('isGodfather', 0)
         
         // 4. válasz generálása
         res.redirect('/')
@@ -63,18 +59,7 @@ class UserController {
         const password = req.input('password')
 
         try {
-            //van ilyen user + don tábla? ha ddd[0] == undefined, akkor nem don
-            const ddd = yield Database.table('users').innerJoin('dons', 'users.id', 'dons.userid').where('email', email)
-            
             yield req.auth.attempt(email, password)
-
-            if (ddd[0] == undefined){
-                View.global('isGodfather', 0)
-            } else {
-                View.global('isGodfather', 1)
-            }
-            
-
             res.redirect('/')
 
         } catch (ex) {
@@ -90,7 +75,6 @@ class UserController {
 
     * doLogout (req, res) {
         yield req.auth.logout()
-        View.global('isGodfather', 0)
         res.redirect('/')
     }
 }
