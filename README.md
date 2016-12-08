@@ -80,8 +80,8 @@ Felhasználó bejelentkezése
 
 ##Vázlatok
 Jelszómódosítás
-![Tasklist](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/view1.png)  
+![Tasklist](readme_img/view1.png)  
 Feladat hozzáadása  
-![Add task](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/view2.png)  
+![Add task](readme_img/view2.png)  
 Elvégzett feladatok listája
-![Edit profile](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/view3.png)
+![Edit profile](master/readme_img/view3.png)
