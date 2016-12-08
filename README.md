@@ -40,7 +40,7 @@ Ha a szervezett bűnözésnek készítenénk todo rendszert, természetesen nem 
 
 ##Oldaltérkép
 **Publikus:**
-+ Feladatlista (csak nehézség)
++ Feladatlista (hiányzó leírás)
 + Bejelentkezés
 + Regisztráció
 
@@ -78,9 +78,9 @@ Felhasználó bejelentkezése
 
 
 ##Vázlatok
-Főoldal, feladatlista  
+Jelszómódosítás
 ![Tasklist](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/view1.png)  
 Feladat hozzáadása  
 ![Add task](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/view2.png)  
-Felhasználó profiljának szerkesztése  
+Elvégzett feladatok listája
 ![Edit profile](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/view3.png)
