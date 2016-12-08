@@ -3,6 +3,10 @@
 {% block content %}
     <h1>Elvégzendő feladatok</h1>
 
+    {% if currentUser %}
+    <p>Szervezetünkben mindenki egyenlő. Bármikor írhatsz ki feladatot a közösség javára, de elváruk, hogy teljesíts is feladatokat.</p>
+    {% endif %}
+
     <table class="table table-striped">
        
             <tr>

@@ -4,6 +4,7 @@ const Task = use('App/Model/Task')
 const User = use('App/Model/User')
 const Finish = use('App/Model/Finish')
 const Database = use('Database')
+const Validator = use('Validator')
 
 class TaskController {
     * index(req, res){
@@ -60,22 +61,15 @@ class TaskController {
         const users_j = users.toJSON();
 
         for (var i = 0; i<tasks_j.length; i++){
-            //console.log(tasks_j[0]);
             //show in list
             var show = false;
             for (var j = 0; j<finish_j.length && !show; j++){
                 if (finish_j[j].taskid == tasks_j[i].id){
                     show = true;
-                    /*console.log("-----------")
-                    console.log(finish_j[i])
-                    console.log("-----------")*/
                     tasks_j[i].fin_uid = finish_j[j].userid;
                     tasks_j[i].date = finish_j[j].created_at;
                 }
             }
-            /*console.log("-----------")
-            console.log(tasks_j[i])
-            console.log("-----------")*/
             tasks_j[i].show=0;
             if (show){
                 tasks_j[i].show=1;
@@ -89,21 +83,50 @@ class TaskController {
                     }
                 }
             }
-
-            console.log(tasks_j)
-
-            yield res.sendView('history', {
-                tasks: tasks_j
-            })
         }
+        yield res.sendView('history', {
+            tasks: tasks_j
+        })
     }
 
     * add(req, res){
-        //todo
+        // 1. input adatok kinyerése
+        const empData = req.all()
+        console.log(empData);
+        // 2. kinyert adatok validálása
+        const rules = {
+            'name': 'required',
+            'text': 'required',
+            'level': 'required|range:0,6'
+        }
+
+        const validation = yield Validator.validateAll(empData, rules)
+        if (validation.fails()) {
+            yield req
+                .withAll()
+                .andWith({ errors: validation.messages() })
+                .flash()
+            res.redirect('/add')
+            return
+        }
+
+        //hozzáadás
+        const currentUser = yield req.auth.getUser();
+        const userId = currentUser.id;
+
+        const task = new Task;
+        task.userid = userId;
+        task.name = empData.name;
+        task.text = empData.text;
+        task.level = empData.level;
+        yield task.save();
+
+        //go
+        res.redirect('/');
     }
 
     * showAdd(req, res){
-        //todo
+        yield res.sendView('add');
     }
 }
 

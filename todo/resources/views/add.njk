@@ -4,23 +4,34 @@
 
 <h1>Feladat hozzáadása</h1>
 
+{% if old('errors') %}
+<div class="alert alert-danger" role="alert">
+    <ul>
+    {% for error in old('errors') %}
+    <li>{{ error.message }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
 <form method="post" action="/add">
+    {{ csrfField }}
     <div class="form-group">
         <label for="name">Név:</label>
-        <input required="required" type="text" class="form-control" id="name" placeholder="Név" />
+        <input required="required" type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Név" />
     </div>
     <div class="form-group">
         <label for="text">Leírás:</label>
-        <input required="required" type="text" class="form-control" id="text" placeholder="Leírás" />
+        <input required="required" type="text" class="form-control" id="text" name="text" {{ old('text') }} placeholder="Leírás" />
     </div>
     <div class="form-group">
-        <label for="text">Szint:</label>
-        <select name="level" class="form-control">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+        <label for="level">Szint:</label>
+        <select id="level" name="level" class="form-control">
+            <option{%if old('level') == 1%} selected{%endif%} value="1">1</option>
+            <option{%if old('level') == 2%} selected{%endif%} value="2">2</option>
+            <option{%if old('level') == 3%} selected{%endif%} value="3">3</option>
+            <option{%if old('level') == 4%} selected{%endif%} value="4">4</option>
+            <option{%if old('level') == 5%} selected{%endif%} value="5">5</option>
         </select>
     </div>
     
