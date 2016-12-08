@@ -63,16 +63,19 @@ Felhasználó bejelentkezése
 
 ##Végpontok
 + **GET/:** feladatlista megtekintése
-+ **POST/:** feladat elvégzésének beküldése
 + **GET/reg:** regisztrációs oldal megtekintése
 + **POST/reg:** regisztrációs kérés küldése
-+ **GET/login:** bejelentkező oldal
++ **GET/login:** bejelentkező oldal megtekintésée
 + **POST/login:** bejelentkezési adatok küldése
-+ **GET/profile:** profil megtekintése
-+ **POST/profile:** profil frissítése
-+ **GET/add:** új feladat hozzáadásának űrlapja
-+ **POST/add:** új feladat beküldése
-+ **GET/history:** elvégzett feladatok listája
++ **GET/logout:** kijelentkezés kérése
++ **GET/do/:id:** feladatelvégzés jelentésének kérése
++ **GET/del/:id:** feladattörlés kérése
++ **GET/history:** elvégzett feladatok listájának megtekintése
++ **GET/password:** jelszómódosító oldal megtekintése
++ **POST/password:** jelszófrissítés küldése
++ **GET/add:** feladathozzáadás oldalának megtekintése
++ **POST/add:** feladathozzáadás kérésének küldés
+
 
 ##Vázlatok
 Főoldal, feladatlista  
