@@ -36,7 +36,8 @@ Ha a szervezett bűnözésnek készítenénk todo rendszert, természetesen nem 
 ##Szerepkörök
 + *Vendég:* megnézheti az aktuális feladatok listáját és a feladatokhoz tartozó nehézséget (de nem láthatja a feladat címét és leírását, ez "titkos"). Ezenkívül regésztrálhat a családba, hogy ő is hozzájárulhasson a "cég" tevékenységéhez.
 + *Családtag:* láthatja az aktuális teljes feladatlistát, azaz címeket, leírásokat és nehézségeket. Feladatot jelölhet elvégzettnek, új feladatot adhat hozzá, saját feladatait törölheti, megnézheti az eddig elvégzett feladatok listáját.
-+ 
+
+
 ##Oldaltérkép
 **Publikus:**
 + Feladatlista (csak nehézség)
@@ -46,26 +47,19 @@ Ha a szervezett bűnözésnek készítenénk todo rendszert, természetesen nem 
 **Családtag:**
 + Feladatlista (teljes)
   + Feladat elvégzése
-+ Profiladatok
-  + Profil szerkesztése
-+ Kijelentkezés
-
-**Családfő:**
-+ Feladatlista (teljes)
-  + Feladat elvégzése
   + Feladat hozzáadása
-+ Elvégzett feladatok listája
+  + Feladat törlése (csak saját)
 + Profiladatok
-  + Profil szerkesztése
+  + Jelszómódosítás
 + Kijelentkezés
 
 ##Rettenetesen bonyolult folyamatok
 Új feladat hozzáadása  
-![New task](https://github.com/szabonorbert/alkfejl2016/blob/master/newtask.png)  
+![New task](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/newtask.png)  
 Feladat elvégzése  
-![Done task](https://github.com/szabonorbert/alkfejl2016/blob/master/donetask.png)  
+![Done task](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/donetask.png)  
 Felhasználó bejelentkezése  
-![User login](https://github.com/szabonorbert/alkfejl2016/blob/master/user.png)
+![User login](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/user.png)
 
 ##Végpontok
 + **GET/:** feladatlista megtekintése
@@ -82,8 +76,8 @@ Felhasználó bejelentkezése
 
 ##Vázlatok
 Főoldal, feladatlista  
-![Tasklist](https://github.com/szabonorbert/alkfejl2016/blob/master/view1.png)  
+![Tasklist](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/view1.png)  
 Feladat hozzáadása  
-![Add task](https://github.com/szabonorbert/alkfejl2016/blob/master/view2.png)  
+![Add task](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/view2.png)  
 Felhasználó profiljának szerkesztése  
-![Edit profile](https://github.com/szabonorbert/alkfejl2016/blob/master/view3.png)
+![Edit profile](https://github.com/szabonorbert/alkfejl20162/blob/master/readme_img/view3.png)
