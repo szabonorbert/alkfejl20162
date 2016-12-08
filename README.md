@@ -5,8 +5,8 @@ Ha a szervezett bűnözésnek készítenénk todo rendszert, természetesen nem 
 ##Funkcionális követelmények
 *Vendégként:*
 
-+ szeretném látni az aktuális feladatokat felsorolva (rejtett szöveggel) és azok nehézségét
-+ szeretnék regisztrálni, hogy családtagként én is végezhessek feladatot
++ szeretném látni az aktuális feladatok listáját (rejtett szöveggel)
++ szeretnék regisztrálni, hogy családtagként én is elvégezhessek feladatokat
 
 
 *Felhasználóként:*
@@ -16,6 +16,7 @@ Ha a szervezett bűnözésnek készítenénk todo rendszert, természetesen nem 
 + szeretném elvégezni a feladatot
 + szeretném a jelszavamat megváltoztatni
 + szeretnék feladatot hozzáadni
++ szretnék feladatot törölni (csak sajátot)
 + szeretném megnézni az elvégzett feladatok listáját
 + szeretnék kijelentkezni
 
@@ -35,7 +36,7 @@ Ha a szervezett bűnözésnek készítenénk todo rendszert, természetesen nem 
 
 ##Szerepkörök
 + *Vendég:* megnézheti az aktuális feladatok listáját és a feladatokhoz tartozó nehézséget (de nem láthatja a feladat címét és leírását, ez "titkos"). Ezenkívül regésztrálhat a családba, hogy ő is hozzájárulhasson a "cég" tevékenységéhez.
-+ *Családtag:* láthatja az aktuális teljes feladatlistát, azaz címeket, leírásokat és nehézségeket. Feladatot jelölhet elvégzettnek, új feladatot adhat hozzá, saját feladatait törölheti, megnézheti az eddig elvégzett feladatok listáját.
++ *Családtag:* láthatja az aktuális teljes feladatlistát, azaz címeket, leírásokat és nehézségeket. Feladatot jelölhet elvégzettnek, új feladatot adhat hozzá, saját maga által hozzáadott feladatokat törölhet, megnézheti az eddig elvégzett feladatok listáját.
 
 
 ##Oldaltérkép
