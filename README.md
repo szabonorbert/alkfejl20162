@@ -110,20 +110,20 @@ A tesztek a Selenium IDE Firefox pluginnal készültek. A rendszer felhasználó
   + doneTask (feladat elvgézése teszt)
 
 ##Oldalvázlatok
-Jelszómódosítás
+Jelszómódosítás:
 ![Tasklist](readme_img/view1.png)  
-Feladat hozzáadása  
+Feladat hozzáadása:
 ![Add task](readme_img/view2.png)  
-Elvégzett feladatok listája
+Elvégzett feladatok listája:
 ![Edit profile](readme_img/view3.png)
 
 ##Telepítés
 
-a. ZIP letöltése
-b. szabonorbert/alkfejl20162 klónozása
-c. szabonorbert/alkfejl20162 forkolása és a saját repo klónozása
++ ZIP letöltése, vagy
++ szabonorbert/alkfejl20162 klónozása, vagy
++ szabonorbert/alkfejl20162 forkolása és a saját repo klónozása
 
-A szoftvert az "npm run dev" paranccsal lehet futtatni, böngészőben a "localhost:3333" címen elérhető.
+Beállítás után a szoftvert az "npm run dev" paranccsal érdemes futtatni, böngészőben a "localhost:3333" címen lesz elérhető.
 
 ##Mappaszerkezet
 
@@ -137,4 +137,4 @@ A szoftver működése szempontjából fontosabb mappák:
 
 ##Szoftver követelmények
 
-Node.js szerver, azt kiszolgálván pedig pedig bármilyen operációs rendszer, ami futtatni képes azt. Az alkalmazás Node.js v7.1.0 -en lett tesztelve.
+Node.js szerver, azt kiszolgálván pedig pedig bármilyen operációs rendszer, ami futtatni képes azt. Az alkalmazás Node.js v7.1.0 alatt lett tesztelve.
