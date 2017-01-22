@@ -27,7 +27,7 @@
                         {% if currentUser %}
                             <a class="btn btn-default" href="/do/{{task.id}}">elvégeztem</a>
                             {% if task.showdel %}
-                                <a class="btn btn-danger" href="/del/{{task.id}}">törlés</a>
+                                <a class="btn btn-danger ajax_del_job" data-id="{{task.id}}" href="/del/{{task.id}}">törlés</a>
                             {%endif%}
                         {%endif%}
                         

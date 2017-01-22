@@ -6,7 +6,6 @@ $(document).ready(function(){
     }
     
     // ajax login
-
     $("#loginform").submit(function(){
         
         var email = $("#loginform #email").val();
@@ -108,6 +107,31 @@ $(document).ready(function(){
 
         return false;
     });
+
+    //ajax del job
+    $(".ajax_del_job").click(function(){
+        var btn = $(this);
+        var id = btn.data('id');
+        var row = btn.parent().parent();
+        var data = "";
+        $.ajax({
+			method: "GET",
+			url: "/ajaxdeljob/" + id,
+            data
+		}).done(function(msg) {
+            if (msg == "success"){
+                //alert("Sikeres törlés!");
+                row.remove();
+            } else {
+                alert('Sikertelen törlés!');
+            }
+		}).fail(function(error) {
+            console.log(error.responseText);
+        }).catch(function(error) {
+            console.log(error.responseText);
+        });
+        return false;
+    })
 
 });
 

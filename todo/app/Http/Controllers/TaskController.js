@@ -128,6 +128,18 @@ class TaskController {
     * showAdd(req, res){
         yield res.sendView('add');
     }
+
+    //AJAX functions
+    *ajaxdeljob(req, res){
+        const task = yield Task.find(req.param('id'))
+        const user = yield req.auth.getUser();
+        if (user.id == task.userid){
+            yield task.delete()
+            yield res.sendView('message', {message:'success'});
+            return
+        }
+        yield res.sendView('message', {message:'fail'});
+    }
 }
 
 module.exports = TaskController
