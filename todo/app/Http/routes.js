@@ -22,3 +22,4 @@ Route.post('/add', 'TaskController.add').middleware('auth');
 Route.post('/ajaxlogin', 'UserController.ajaxlogin');
 Route.get('/ajaxlogout', 'UserController.ajaxlogout');
 Route.post('/ajaxregcheck', 'UserController.ajaxregcheck');
+Route.post('/ajaxchangepass', 'UserController.ajaxchangepass').middleware('auth');

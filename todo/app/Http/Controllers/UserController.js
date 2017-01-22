@@ -144,7 +144,6 @@ class UserController {
             return
         }
 
-        //
         const user = new User
         user.username = empData.username
         user.email = empData.email
@@ -152,6 +151,27 @@ class UserController {
 
         yield user.save()
         yield req.auth.login(user)
+        yield res.sendView('message', {message:'success'});
+    }
+
+    * ajaxchangepass (req, res){
+        const empData = req.all()
+        const rules = {
+            'password': 'required|min:4'
+        }
+
+        const validation = yield Validator.validateAll(empData, rules);
+
+        if (validation.fails()) {
+            yield res.sendView('message', {message:'fail'});
+            return
+        }
+        
+        const currentUser = yield req.auth.getUser();
+        const userId = currentUser.id;
+        const user = yield User.findBy('id', userId);
+        user.password = yield Hash.make(empData.password);
+        yield user.save();
         yield res.sendView('message', {message:'success'});
     }
 }

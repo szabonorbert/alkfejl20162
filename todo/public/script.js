@@ -81,5 +81,33 @@ $(document).ready(function(){
         return false;
     });
 
+
+
+    //ajax changepass
+    $("#changepass").submit(function(){
+        var password = $("#changepass #password").val();
+        var data = "password=" + password;
+
+        $.ajax({
+			method: "POST",
+			url: "/ajaxchangepass",
+            data,
+            headers
+		}).done(function(msg) {
+            if (msg == "fail"){
+                alert('Sikertelen módosítás; minimum 4 karakter!');
+            } else {
+               alert("Sikeres módosítás!");
+               $("#changepass #password").val("");
+            }
+		}).fail(function(error) {
+            console.log(error.responseText);
+        }).catch(function(error) {
+            console.log(error.responseText);
+        });
+
+        return false;
+    });
+
 });
 
