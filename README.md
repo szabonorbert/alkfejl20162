@@ -90,22 +90,25 @@ Felhasználó bejelentkezése
 + feladattörlés
 
 ##Tesztesetek
+
+A tesztek a Selenium IDE Firefox pluginnal készültek. A rendszer felhasználókat szimulál a böngészőben (például gépelés, kattintás, stb). A tesztesetek a test mappában találhatók, pontosabban:
+
 + test/loginSuite
-  + login teszt 
-  + sikertelen login teszt
-  + logout teszt
+  + login (bejelentkezés teszt)
+  + badLogin (sikertelen bejelentkezés teszt)
+  + logout (kijelentkezés teszt)
 + test/regSuite
-  + regisztráció teszt 
-  + sikertelen regisztráció teszt
-  + sikertelen regisztráció teszt 2
+  + reg (regisztráció teszt)
+  + regFail (sikertelen regisztráció teszt)
+  + regFail2 (sikertelen regisztráció teszt 2)
 + test/passSuite
-  + jelszóváltoztatás teszt 
-  + sikertelen jelszóváltoztatás teszt
+  + passChange (jelszóváltoztatás teszt)
+  + passChangeFail (sikertelen jelszóváltoztatás teszt)
 + test/taskSuite
-  + feladat hozzáadása teszt 
-  + feladat törlése teszt
-  + feladat elvgézése teszt
-  
+  + addTask (feladat hozzáadása teszt) 
+  + delTask (feladat törlése teszt)
+  + doneTask (feladat elvgézése teszt)
+
 ##Vázlatok
 Jelszómódosítás
 ![Tasklist](readme_img/view1.png)  
