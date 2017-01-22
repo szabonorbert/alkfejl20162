@@ -137,9 +137,9 @@ A szoftver működése szempontjából fontosabb mappák:
 
 ##Szoftver követelmények
 
-Node.js szerver, azt kiszolgálván pedig pedig bármilyen operációs rendszer, ami futtatni képes azt. Az alkalmazás Node.js v7.1.0 alatt lett tesztelve.
+Node.js szerver, azt kiszolgálván pedig pedig bármilyen operációs rendszer, ami futtatni képes. Az alkalmazás Node.js v7.1.0 alatt lett tesztelve.
 
-## Kiegészítés: A szerveroldali alkalmazás progresszív fejlesztése kliensoldali JavaScript segítségével (ajax)
+## Kiegészítés: A szerveroldali alkalmazás progresszív fejlesztése kliensoldali JavaScript segítségével
 
 ### Ajax bejelentkezés
 
