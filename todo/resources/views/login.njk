@@ -10,7 +10,7 @@
 </div>
 {% endif %}
 
-<form method="post" action="/login">
+<form method="post" id="loginform" action="/login">
     {{ csrfField }}
     <div class="form-group">
         <label for="email">E-mail:</label>
@@ -22,7 +22,6 @@
     </div>
     <button type="submit" class="btn btn-default">Bejelentkezés</button>
 </form>
-
 
 <form method="post" action="/reg">
     {{ csrfField }}

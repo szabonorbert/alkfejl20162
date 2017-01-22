@@ -16,3 +16,7 @@ Route.get('/password', 'UserController.profile').middleware('auth');
 Route.post('/password', 'UserController.editProfile').middleware('auth');
 Route.get('/add', 'TaskController.showAdd').middleware('auth');
 Route.post('/add', 'TaskController.add').middleware('auth');
+
+
+//ajax
+Route.post('/ajaxlogin', 'UserController.ajaxlogin');

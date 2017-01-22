@@ -106,6 +106,21 @@ class UserController {
         res.redirect('/password');
         return;
     }
+
+
+    //AJAX functions
+
+    * ajaxlogin(req, res){
+        const email = req.input('email')
+        const password = req.input('password')
+
+        try {
+            yield req.auth.attempt(email, password)
+            yield res.sendView('message', {message:'success'});
+        } catch (ex) {
+            yield res.sendView('message', {message:'fail'});
+        }
+    }
 }
 
 module.exports = UserController
