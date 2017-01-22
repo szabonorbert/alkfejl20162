@@ -167,7 +167,7 @@ A funkció elérhető:
 + App/Http/routes.js
 + App/Http/Controllers/UserController.js
 
-A gomb GET-tel megnyitja az ajax kijelentkezést ("ajaxlogout"). Ha sikerül, átkerülünk a főoldalra (feladatlista).
+A gomb GET-tel megnyitja az ajax kijelentkezést ("ajaxlogout"). Ha sikerül, átkerülünk a főoldalra (feladatlista). Az értelme csak annyi, hogy megspóroltunk egy linket (a böngészőben nem jelentik meg a "/logout" route).
 
 ### Ajax regisztráció
 
