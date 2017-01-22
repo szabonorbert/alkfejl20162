@@ -23,9 +23,9 @@ Ha a szervezett bűnözésnek készítenénk todo rendszert, természetesen nem 
 
 ##Nem funkcionális követelmények
 
-+ Felhasználóbarát
++ Felhasználóbarát, átlátható
 + Biztonságos
-+ Gyors hozzáférés
++ Gyors hozzáférés, rövid válaszidő
 
 
 ##Use-case
@@ -34,13 +34,13 @@ Ha a szervezett bűnözésnek készítenénk todo rendszert, természetesen nem 
 ##Adatmodellek
 ![Data](readme_img/data.png)
 
-##Szerepkörök
+##Szerepkörök és jogosultságok
 + *Vendég:* megnézheti az aktuális feladatok listáját és a feladatokhoz tartozó nehézséget (de nem láthatja a feladat címét és leírását, ez "titkos"). Ezenkívül regésztrálhat a családba, hogy ő is hozzájárulhasson a "cég" tevékenységéhez.
 + *Családtag:* láthatja az aktuális teljes feladatlistát, azaz címeket, leírásokat és nehézségeket. Feladatot jelölhet elvégzettnek, új feladatot adhat hozzá, saját maga által hozzáadott feladatokat törölhet, megnézheti az eddig elvégzett feladatok listáját.
 
 
 ##Oldaltérkép
-**Publikus:**
+**Vendég (publikus):**
 + Feladatlista (hiányzó leírás)
 + Bejelentkezés
 + Regisztráció
@@ -109,10 +109,32 @@ A tesztek a Selenium IDE Firefox pluginnal készültek. A rendszer felhasználó
   + delTask (feladat törlése teszt)
   + doneTask (feladat elvgézése teszt)
 
-##Vázlatok
+##Oldalvázlatok
 Jelszómódosítás
 ![Tasklist](readme_img/view1.png)  
 Feladat hozzáadása  
 ![Add task](readme_img/view2.png)  
 Elvégzett feladatok listája
 ![Edit profile](readme_img/view3.png)
+
+##Telepítés
+
+a. ZIP letöltése
+b. szabonorbert/alkfejl20162 klónozása
+c. szabonorbert/alkfejl20162 forkolása és a saját repo klónozása
+
+A szoftvert az "npm run dev" paranccsal lehet futtatni, böngészőben a "localhost:3333" címen elérhető.
+
+##Mappaszerkezet
+
+A szoftver működése szempontjából fontosabb mappák:
+
++ resources/views: itt találhatók meg a a megjelenítendő oldalak (HTML)
++ database: itt találhatók a migration-ök
++ App/Http: a Controllerek, amik az adatbázis és a view-k közti kommunikációt valósítja meg, s a routes.js fájl, ahol a route-okat találjuk
++ App/Model: az adatbázismodellek helye
++ public: a script.js helye
+
+##Szoftver követelmények
+
+Node.js szerver, azt kiszolgálván pedig pedig bármilyen operációs rendszer, ami futtatni képes azt. Az alkalmazás Node.js v7.1.0 -en lett tesztelve.
