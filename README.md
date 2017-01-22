@@ -138,3 +138,72 @@ A szoftver működése szempontjából fontosabb mappák:
 ##Szoftver követelmények
 
 Node.js szerver, azt kiszolgálván pedig pedig bármilyen operációs rendszer, ami futtatni képes azt. Az alkalmazás Node.js v7.1.0 alatt lett tesztelve.
+
+## Kiegészítés: A szerveroldali alkalmazás progresszív fejlesztése kliensoldali JavaScript segítségével (ajax)
+
+# Ajax bejelentkezés
+
+A funckió elérhető:
++ /login
+
+Érintett fájlok:
++ public/script.js
++ resources/views/login.njk
++ App/Http/routes.js
++ App/Http/Controllers/UserController.js
+
+A bejelentkező form adatait elküldjük (POST) az "ajaxlogin" route-ra. Ha sikerül a bejelentkezés, akkor átkerülünk a főoldalra (feladatlista), egyébként alert hibaüzenetet kapunk.
+
+![User login](readme_img/user.png)
+
+# Ajax kijelentkezés
+
+A funckió elérhető:
++ minden oldalon, ha be vagyunk jelentkezve
+
+Érintett fájlok:
++ public/script.js
++ resources/views/base.njk
++ App/Http/routes.js
++ App/Http/Controllers/UserController.js
+
+A gomb GET-tel megnyitja az ajax kijelentkezést ("ajaxlogout"). Ha sikerül, átkerülünk a főoldalra (feladatlista).
+
+# Ajax regisztráció
+
+A funckió elérhető:
++ /reg
+
+Érintett fájlok:
++ public/script.js
++ resources/views/reg.njk
++ App/Http/routes.js
++ App/Http/Controllers/UserController.js
+
+A regisztrációs form adatait elküldjük (POST) az "ajaxregcheck" route-ra. Ha sikerül a regsztráció, akkor átkerülünk a főoldalra (feladatlista) bejelentkezve, egyébként alert hibaüzenetet kapunk.
+
+# Ajax jelszómódosítás
+
+A funckió elérhető:
++ /password
+
+Érintett fájlok:
++ public/script.js
++ resources/views/password.njk
++ App/Http/routes.js
++ App/Http/Controllers/UserController.js
+
+A jelszómódosító form adatait elküldjük (POST) az "ajaxchangepass" route-ra. A módosítási kérelem eredményéről alert üzenetben értesülünk, és ha sikerült, akkor a mező tartalma törlődik.
+
+# Ajax feladattörlés
+
+A funckió elérhető:
++ /
+
+Érintett fájlok:
++ public/script.js
++ resources/views/main.njk
++ App/Http/routes.js
++ App/Http/Controllers/TaskController.js
+
+A piros színű törlés gomb GET-tel megnyitja az ajax feladattörlést ("ajaxdeljob/[id]", ahol az [id]] a feladat ID-jét takarja). Ha sikerül, ha nem, alert üzenetben értesülünk róla (csak akkor nem sikerülhet, ha nem általunk létrehozott feladat [de ekkor nem is jelenik meg a törlés gomb], és mégis valaki a rendszert megkerülve próbálja törölni a feladatot). Ha sikerült a törlés, a táblázat érintett sora eltűnik.
