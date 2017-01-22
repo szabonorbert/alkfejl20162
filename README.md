@@ -158,7 +158,7 @@ A bejelentkező form adatait elküldjük (POST) az "ajaxlogin" route-ra. Ha sike
 
 ### Ajax kijelentkezés
 
-A funckió elérhető:
+A funkció elérhető:
 + minden oldalon, ha be vagyunk jelentkezve
 
 Érintett fájlok:
@@ -171,7 +171,7 @@ A gomb GET-tel megnyitja az ajax kijelentkezést ("ajaxlogout"). Ha sikerül, á
 
 ### Ajax regisztráció
 
-A funckió elérhető:
+A funkció elérhető:
 + /reg
 
 Érintett fájlok:
@@ -184,7 +184,7 @@ A regisztrációs form adatait elküldjük (POST) az "ajaxregcheck" route-ra. Ha
 
 ### Ajax jelszómódosítás
 
-A funckió elérhető:
+A funkció elérhető:
 + /password
 
 Érintett fájlok:
@@ -197,7 +197,7 @@ A jelszómódosító form adatait elküldjük (POST) az "ajaxchangepass" route-r
 
 ### Ajax feladattörlés
 
-A funckió elérhető:
+A funkció elérhető:
 + /
 
 Érintett fájlok:
@@ -206,4 +206,4 @@ A funckió elérhető:
 + App/Http/routes.js
 + App/Http/Controllers/TaskController.js
 
-A piros színű törlés gomb GET-tel megnyitja az ajax feladattörlést ("ajaxdeljob/[id]", ahol az [id]] a feladat ID-jét takarja). Ha sikerül, ha nem, alert üzenetben értesülünk róla (csak akkor nem sikerülhet, ha nem általunk létrehozott feladat [de ekkor nem is jelenik meg a törlés gomb], és mégis valaki a rendszert megkerülve próbálja törölni a feladatot). Ha sikerült a törlés, a táblázat érintett sora eltűnik.
+A piros színű törlés gomb GET-tel megnyitja az ajax feladattörlést ("ajaxdeljob/[id]", ahol az [id] természetesen a feladat ID-jét takarja). Ha sikerül, ha nem, alert üzenetben értesülünk róla (csak akkor nem sikerülhet, ha nem általunk létrehozott feladatról van szó [de ekkor nem is jelenik meg a törlés gomb], és mégis valaki a rendszert megkerülve próbálja törölni a feladatot). Ha sikerült a törlés, a táblázat érintett sora eltűnik.
