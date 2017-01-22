@@ -54,7 +54,7 @@ Ha a szervezett bűnözésnek készítenénk todo rendszert, természetesen nem 
   + Jelszómódosítás
 + Kijelentkezés
 
-##Rettenetesen bonyolult folyamatok
+##Folyamatok
 Új feladat hozzáadása  
 ![New task](readme_img/newtask.png)  
 Feladat elvégzése  
@@ -76,8 +76,36 @@ Felhasználó bejelentkezése
 + **POST/password:** jelszófrissítés küldése
 + **GET/add:** feladathozzáadás oldalának megtekintése
 + **POST/add:** feladathozzáadás kérésének küldés
++ **POST/ajaxlogin:** ajax bejelentkezés
++ **GET/ajaxlogout:** ajax kijelentkezés
++ **POST/ajaxregcheck:** ajax regisztráció
++ **POST/ajaxchangepass:** ajax jelszómódosítás
++ **GET/ajaxdeljob/:id:** ajax feladattörlés
 
+##Ajax funckiók
++ bejelentkezés
++ kijelentkezés
++ regisztráció
++ jelszómódosítás
++ feladattörlés
 
+##Tesztesetek
++ test/loginSuite
+  + login teszt 
+  + sikertelen login teszt
+  + logout teszt
++ test/regSuite
+  + regisztráció teszt 
+  + sikertelen regisztráció teszt
+  + sikertelen regisztráció teszt 2
++ test/passSuite
+  + jelszóváltoztatás teszt 
+  + sikertelen jelszóváltoztatás teszt
++ test/taskSuite
+  + feladat hozzáadása teszt 
+  + feladat törlése teszt
+  + feladat elvgézése teszt
+  
 ##Vázlatok
 Jelszómódosítás
 ![Tasklist](readme_img/view1.png)  
