@@ -141,7 +141,7 @@ Node.js szerver, azt kiszolgálván pedig pedig bármilyen operációs rendszer,
 
 ## Kiegészítés: A szerveroldali alkalmazás progresszív fejlesztése kliensoldali JavaScript segítségével (ajax)
 
-# Ajax bejelentkezés
+### Ajax bejelentkezés
 
 A funckió elérhető:
 + /login
@@ -156,7 +156,7 @@ A bejelentkező form adatait elküldjük (POST) az "ajaxlogin" route-ra. Ha sike
 
 ![User login](readme_img/user.png)
 
-# Ajax kijelentkezés
+### Ajax kijelentkezés
 
 A funckió elérhető:
 + minden oldalon, ha be vagyunk jelentkezve
@@ -169,7 +169,7 @@ A funckió elérhető:
 
 A gomb GET-tel megnyitja az ajax kijelentkezést ("ajaxlogout"). Ha sikerül, átkerülünk a főoldalra (feladatlista).
 
-# Ajax regisztráció
+### Ajax regisztráció
 
 A funckió elérhető:
 + /reg
@@ -182,7 +182,7 @@ A funckió elérhető:
 
 A regisztrációs form adatait elküldjük (POST) az "ajaxregcheck" route-ra. Ha sikerül a regsztráció, akkor átkerülünk a főoldalra (feladatlista) bejelentkezve, egyébként alert hibaüzenetet kapunk.
 
-# Ajax jelszómódosítás
+### Ajax jelszómódosítás
 
 A funckió elérhető:
 + /password
@@ -195,7 +195,7 @@ A funckió elérhető:
 
 A jelszómódosító form adatait elküldjük (POST) az "ajaxchangepass" route-ra. A módosítási kérelem eredményéről alert üzenetben értesülünk, és ha sikerült, akkor a mező tartalma törlődik.
 
-# Ajax feladattörlés
+### Ajax feladattörlés
 
 A funckió elérhető:
 + /
