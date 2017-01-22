@@ -121,6 +121,39 @@ class UserController {
             yield res.sendView('message', {message:'fail'});
         }
     }
+
+    * ajaxlogout(req, res){
+        yield req.auth.logout()
+        yield res.sendView('message', {message:'success'});
+    }
+
+    * ajaxregcheck(req, res){
+        // 1. input adatok kinyerése
+        const empData = req.all()
+
+        // 2. kinyert adatok validálása
+        const rules = {
+            'username': 'required',
+            'email': 'required|email',
+            'password': 'required|min:4'
+        }
+
+        const validation = yield Validator.validateAll(empData, rules)
+        if (validation.fails()) {
+            yield res.sendView('message', {message:'fail'});
+            return
+        }
+
+        //
+        const user = new User
+        user.username = empData.username
+        user.email = empData.email
+        user.password = yield Hash.make(empData.password)
+
+        yield user.save()
+        yield req.auth.login(user)
+        yield res.sendView('message', {message:'success'});
+    }
 }
 
 module.exports = UserController

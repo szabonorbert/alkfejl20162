@@ -32,7 +32,54 @@ $(document).ready(function(){
         return false;
     });
 
+    //ajax logout
+    $("#logout_btn").click(function(){
+        var data = "";
+        $.ajax({
+			method: "GET",
+			url: "/ajaxlogout",
+            data
+		}).done(function(msg) {
+            if (msg == "success"){
+                window.location.href = "/";
+            } else {
+                alert('Sikertelen kijelentkezés!');
+            }
+		}).fail(function(error) {
+            console.log(error.responseText);
+        }).catch(function(error) {
+            console.log(error.responseText);
+        });
+        return false;
+    })
 
+    //ajax reg usercheck
+    $("#regform").submit(function(){
+        var username = $("#regform #username").val();
+        var email = $("#regform #email").val();
+        var password = $("#regform #password").val();
+        var data = "username=" + username + "&email=" + email + "&password=" + password;
+
+        $.ajax({
+			method: "POST",
+			url: "/ajaxregcheck",
+            data,
+            headers
+		}).done(function(msg) {
+            if (msg == "fail"){
+                alert('Sikertelen regisztráció, ellenőrizd az adatokat!');
+                return false;
+            } else {
+                window.location.href = "/";
+            }
+		}).fail(function(error) {
+            console.log(error.responseText);
+        }).catch(function(error) {
+            console.log(error.responseText);
+        });
+
+        return false;
+    });
 
 });
 
